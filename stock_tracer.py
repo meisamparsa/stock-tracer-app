@@ -204,5 +204,17 @@ try:
                 except:
                     st.info("Unable to fetch analyst recommendations or price target. Data may not be available via yfinance.")
 
+            # Fixed-position PayPal Donate Button
+            paypal_button = """
+            <div style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background-color: #ffffff; padding: 10px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); opacity: 0.70;">
+                <form action="https://www.paypal.com/donate" method="post" target="_blank">
+                    <input type="hidden" name="hosted_button_id" value="3YFWRK6PZZVPG" />
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" title="Securely donate with PayPal" alt="Donate with PayPal" style="width: 100px; height: auto;" align="center"/>
+                    <div style="text-align: center; font-size: 14px; font-family: Arial, sans-serif; color: #003087; margin-top: 5px;">If you like it, would you support me!</div>
+                </form>
+            </div>
+            """
+            st.markdown(paypal_button, unsafe_allow_html=True)
+
 except Exception as e:
     st.error(f"Error fetching data: {str(e)}. Please check the ticker symbol or date range.")
